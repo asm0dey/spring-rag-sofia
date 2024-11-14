@@ -4,8 +4,10 @@
   "private": true,
   "scripts": {
     "build": "slidev build",
+    "build-gha": "slidev build --base spring-rag/",
     "dev": "slidev",
-    "export": "slidev export"
+    "export": "slidev export",
+    "export-pdf": "slidev export --with-clicks --format pdf --output dist/index.pdf"
   },
   "dependencies": {
     "@iconify-json/logos": "^1.2.3",

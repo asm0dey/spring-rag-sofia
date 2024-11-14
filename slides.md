@@ -24,7 +24,7 @@ mdc: true
 overviewSnapshots: true
 aspectRatio: 16/9
 monaco: false
-layout: cover
+layout: intro
 ---
 
 # From ChatGPT User to RAG Implementer: A Developer's Journey
@@ -112,14 +112,14 @@ graph LR
 3. Need to produce content for the community
 4. Still love to code
 
-<p>
+<!-- <p> -->
 <div v-click v-mark="{at: 1, color: 'yellow', type: 'box'}">
-<p>Follow me!</p>
+<p>Follow me, BTW!</p>
 <p><logos-bluesky /> asm0dey</p>
 <p><logos-twitter /> asm0di0</p>
 <p><logos-mastodon-icon /> @asm0dey@fosstodon.org</p>
 </div>
-</p>
+<!-- </p> -->
 
 ---
 
@@ -150,15 +150,197 @@ And I just can't find my way through them
 </ul>
 
 ---
-layout: center
+layout: image
+image: /yak.jpg
+backgroundSize: contain
 ---
 
-<img 
-  src="/yak.jpg"
-  class="w-auto h-130"
-/>
+<!-- <img  -->
+  <!-- src="/yak.jpg" -->
+  <!-- class="w-auto h-130" -->
+<!-- /> -->
 
 ---
 
 # Luckily I have a friend
 
+
+Who I could ask stupid questions (thanks @shrimpsizemoose)
+<v-click> What did I ask?</v-click>
+
+<v-click>
+
+> How do I search thru my documents? You do this neural network magic for years, right?
+</v-click>
+<v-click>
+
+He's a good friend, so he didn't answer, but asked what I know
+</v-click>
+<v-click>
+I:
+
+> Well, word2vec, layers, embedding!
+
+</v-click>
+
+<v-click>
+He:
+
+> Explain me embeddings then
+</v-click>
+<v-click> I couldn't </v-click>
+
+---
+
+# Embeddings
+
+Here's an embedding
+
+`[0.123, -0.456, 0.789, -0.234, 0.567, -0.890, 0.345, -0.678, 0.901, -0.432]`
+
+And one more:
+
+`[0.234, -0.567, 0.890, -0.123, 0.456, -0.789, 0.321, -0.654, 0.987, -0.345]`
+
+What do they mean?
+
+We do not know. Nothing in this context
+
+---
+
+# What is an embedding?
+
+An embedding is a way to represent something (like a word, image, or document) as a list of numbers
+
+<v-click>
+
+Think of it like GPS coordinates:
+- "New York" → (40.7128° N, 74.0060° W)
+- "Tokyo" → (35.6762° N, 139.6503° E)
+</v-click>
+
+<v-click>
+
+Just like coordinates tell us where cities are in physical space...
+
+Embeddings tell us where things are in "meaning space" 🤯
+</v-click>
+
+<v-click>
+
+Similar things should have similar coordinates:
+- "cat" and "kitten" would be close together
+- "cat" and "rocket" would be far apart
+</v-click>
+
+---
+
+# Example: Family relationships in meaning space
+
+<v-click>
+
+Let's look at a famous example:
+
+"king" - "man" + "woman" ≈ "queen"
+</v-click>
+
+<v-click>
+
+Similarly:
+
+"father" - "man" + "woman" ≈ "mother"
+</v-click>
+
+<v-click>
+
+This shows that embeddings capture relationships:
+- The difference between "father" and "mother" is similar to the difference between "man" and "woman"
+- The "parent" concept stays constant while the gender changes
+</v-click>
+
+<v-click>
+
+These relationships emerge naturally when AI models learn from text!
+</v-click>
+
+---
+
+# Word2Vec: A Breakthrough in Word Embeddings
+
+<v-click>
+
+Word2Vec was introduced by Google researchers in 2013:
+- First major breakthrough in creating meaningful word embeddings
+- Made it practical to capture word relationships in vector space
+</v-click>
+
+---
+
+# How Word2Vec Works
+
+<v-click>
+
+The core idea is learning from context:
+- Predicts words that appear near each other
+- If words often appear in similar contexts, they get similar embeddings
+</v-click>
+
+<v-click>
+
+For example:
+- "cat" and "dog" often appear near words like:
+  - "pet"
+  - "food" 
+  - "vet"
+</v-click>
+
+---
+
+# Word2Vec's Key Innovations
+
+<v-click>
+
+Technical breakthroughs:
+- Much faster training than previous methods
+- Produced higher quality embeddings
+</v-click>
+
+<v-click>
+
+Conceptual breakthrough:
+- Showed that simple neural networks could capture complex meaning
+</v-click>
+
+---
+
+# Word2Vec's Impact
+
+<v-click>
+
+Changed the field of NLP:
+- Sparked a revolution in natural language processing
+- Laid groundwork for modern language models
+- Still used today in many applications
+</v-click>
+
+---
+
+# Word2Vec Results
+
+<v-click>
+
+The output is word embeddings:
+- Each word becomes a <abbr title="A compact numerical representation where most values are non-zero, unlike sparse vectors">dense vector of numbers</abbr>
+- Similar words have similar vectors
+- Vector math captures semantic relationships
+</v-click>
+
+<v-click>
+
+Properties of the vectors:
+- Typically 100-300 dimensions
+- Enable measuring word similarity
+- Can be visualized in lower dimensions
+</v-click>
+
+---
