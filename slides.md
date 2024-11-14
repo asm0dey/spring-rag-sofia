@@ -344,3 +344,92 @@ Properties of the vectors:
 </v-click>
 
 ---
+
+# Word2Vec's Limitations
+
+Technical limitations:
+
+- Fixed context window misses broader document meaning
+- Cannot handle polysemy (same word with different meanings)
+- Requires pre-trained embeddings for each word
+
+---
+
+# Modern Alternatives
+
+Superseded by newer architectures:
+
+- <abbr title="Bidirectional Encoder Representations from Transformers">BERT</abbr> and other transformers learn contextual embeddings
+- Large language models capture richer relationships
+- Modern models handle multiple word meanings
+
+---
+
+# Word2Vec's Legacy
+
+Still relevant today:
+
+- Pioneered neural word embeddings
+- Core concepts influence modern NLP
+- Useful for simple NLP tasks
+- Good for learning fundamentals
+
+---
+
+
+# Text Embeddings
+
+Similar concept, but for chunks of text:
+
+Instead of:
+`"cat"` → `[0.1, 0.2, -0.3, ...]`
+
+We get:
+`"The cat sat on the mat"` → `[0.4, -0.2, 0.1, ...]`
+
+---
+
+# Benefits
+
+- Captures meaning of entire passages
+- Similar texts get similar vectors
+- Can compare documents, paragraphs, or sentences
+
+---
+
+# Use Cases
+
+- Semantic search (find similar documents)
+- Document clustering
+- Question answering
+- Text classification
+
+---
+
+# How Text Embeddings Work
+
+<v-clicks>
+
+- Split text into tokens
+- Process through neural network layers:
+  - Embedding layer converts tokens to vectors
+  - Attention layers capture relationships
+  - Feed-forward layers transform data
+  - Pooling layers combine information
+- Combine token representations
+- Output fixed-size vector
+
+</v-clicks>
+
+---
+
+# Popular models
+
+- OpenAI's text-embedding-ada-002
+- Sentence-BERT
+- Universal Sentence Encoder
+
+---
+
+
+
