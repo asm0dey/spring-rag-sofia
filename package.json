@@ -17,6 +17,7 @@
     "@slidev/theme-default": "latest",
     "@slidev/theme-seriph": "latest",
     "playwright-chromium": "^1.48.2",
+    "slidev-addon-qrcode": "^1.0.2",
     "slidev-theme-geist": "^0.8.1",
     "slidev-theme-the-unnamed": "^0.0.22",
     "vue": "^3.5.12"

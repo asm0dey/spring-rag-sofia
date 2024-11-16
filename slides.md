@@ -24,7 +24,9 @@ mdc: true
 overviewSnapshots: true
 aspectRatio: 16/9
 monaco: false
-layout: intro
+layout: center
+addons:
+    - slidev-addon-qrcode
 ---
 
 # From ChatGPT User to RAG Implementer: A Developer's Journey
@@ -650,11 +652,40 @@ layout: center
 - You don't need to know how LLM works to use RAG
 
 ---
-layout: center
+layout: two-cols-header
 ---
 
 # Questions?
 
+::left::
+
 <p><logos-bluesky /> asm0dey</p>
 <p><logos-twitter /> asm0di0</p>
 <p><logos-mastodon-icon /> @asm0dey@fosstodon.org</p>
+
+::right::
+
+Blog:
+<QRCode
+    :width="150"
+    :height="150"
+    type="svg"
+    data="https://bit.ly/48WTkL5"
+    :margin="10"
+    :imageOptions="{ margin: 10 }"
+    :dotsOptions="{ type: 'extra-rounded', color: 'white' }"
+/>
+
+Source code:
+<QRCode
+    :width="150"
+    :height="150"
+    type="svg"
+    data="https://github.com/asm0dey/bellsoft-docs-bot"
+    :margin="10"
+    :imageOptions="{ margin: 10 }"
+    :dotsOptions="{ type: 'extra-rounded', color: 'white' }"/>
+
+---
+layout: end
+---
