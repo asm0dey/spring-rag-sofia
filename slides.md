@@ -155,10 +155,21 @@ image: /yak.jpg
 backgroundSize: contain
 ---
 
+
+
+
 <!-- <img  -->
   <!-- src="/yak.jpg" -->
   <!-- class="w-auto h-130" -->
 <!-- /> -->
+
+---
+layout: center
+---
+
+# Let's use AI!
+
+But how?
 
 ---
 
@@ -166,15 +177,18 @@ backgroundSize: contain
 
 
 Who I could ask stupid questions (thanks @shrimpsizemoose)
+
 <v-click> What did I ask?</v-click>
 
 <v-click>
 
 > How do I search thru my documents? You do this neural network magic for years, right?
+
 </v-click>
 <v-click>
 
 He's a good friend, so he didn't answer, but asked what I know
+
 </v-click>
 <v-click>
 I:
@@ -187,6 +201,7 @@ I:
 He:
 
 > Explain me embeddings then
+
 </v-click>
 <v-click> I couldn't </v-click>
 
@@ -217,6 +232,7 @@ An embedding is a way to represent something (like a word, image, or document) a
 Think of it like GPS coordinates:
 - "New York" → (40.7128° N, 74.0060° W)
 - "Tokyo" → (35.6762° N, 139.6503° E)
+
 </v-click>
 
 <v-click>
@@ -224,6 +240,7 @@ Think of it like GPS coordinates:
 Just like coordinates tell us where cities are in physical space...
 
 Embeddings tell us where things are in "meaning space" 🤯
+
 </v-click>
 
 <v-click>
@@ -231,6 +248,7 @@ Embeddings tell us where things are in "meaning space" 🤯
 Similar things should have similar coordinates:
 - "cat" and "kitten" would be close together
 - "cat" and "rocket" would be far apart
+
 </v-click>
 
 ---
@@ -242,6 +260,7 @@ Similar things should have similar coordinates:
 Let's look at a famous example:
 
 "king" - "man" + "woman" ≈ "queen"
+
 </v-click>
 
 <v-click>
@@ -249,6 +268,7 @@ Let's look at a famous example:
 Similarly:
 
 "father" - "man" + "woman" ≈ "mother"
+
 </v-click>
 
 <v-click>
@@ -256,11 +276,13 @@ Similarly:
 This shows that embeddings capture relationships:
 - The difference between "father" and "mother" is similar to the difference between "man" and "woman"
 - The "parent" concept stays constant while the gender changes
+
 </v-click>
 
 <v-click>
 
 These relationships emerge naturally when AI models learn from text!
+
 </v-click>
 
 ---
@@ -272,6 +294,7 @@ These relationships emerge naturally when AI models learn from text!
 Word2Vec was introduced by Google researchers in 2013:
 - First major breakthrough in creating meaningful word embeddings
 - Made it practical to capture word relationships in vector space
+
 </v-click>
 
 ---
@@ -283,6 +306,7 @@ Word2Vec was introduced by Google researchers in 2013:
 The core idea is learning from context:
 - Predicts words that appear near each other
 - If words often appear in similar contexts, they get similar embeddings
+
 </v-click>
 
 <v-click>
@@ -292,6 +316,7 @@ For example:
   - "pet"
   - "food" 
   - "vet"
+
 </v-click>
 
 ---
@@ -303,12 +328,14 @@ For example:
 Technical breakthroughs:
 - Much faster training than previous methods
 - Produced higher quality embeddings
+
 </v-click>
 
 <v-click>
 
 Conceptual breakthrough:
 - Showed that simple neural networks could capture complex meaning
+
 </v-click>
 
 ---
@@ -321,6 +348,7 @@ Changed the field of NLP:
 - Sparked a revolution in natural language processing
 - Laid groundwork for modern language models
 - Still used today in many applications
+
 </v-click>
 
 ---
@@ -333,6 +361,7 @@ The output is word embeddings:
 - Each word becomes a <abbr title="A compact numerical representation where most values are non-zero, unlike sparse vectors">dense vector of numbers</abbr>
 - Similar words have similar vectors
 - Vector math captures semantic relationships
+
 </v-click>
 
 <v-click>
@@ -341,6 +370,7 @@ Properties of the vectors:
 - Typically 100-300 dimensions
 - Enable measuring word similarity
 - Can be visualized in lower dimensions
+
 </v-click>
 
 ---
@@ -425,11 +455,125 @@ We get:
 
 # Popular models
 
-- OpenAI's text-embedding-ada-002
-- Sentence-BERT
-- Universal Sentence Encoder
+- OpenAI's `text-embedding-ada-002`
+- <abbr title="A variant of BERT fine-tuned for sentence-level tasks like similarity and clustering">
+  Sentence-BERT</abbr>
+- <abbr title="A pre-trained model by Google designed for encoding sentences into embedding vectors for semantic similarity tasks">
+  Universal Sentence Encoder</abbr>
 
 ---
 
+# Why do we need embeddings?
+
+<v-clicks>
+
+- LLMs can't directly search through documents
+- Embeddings convert text into numbers that capture meaning
+- Similar texts get similar vectors, enabling semantic search
+- RAG workflow:
+  1. Convert documents to embeddings and store them
+  2. Convert user query to embedding
+  3. Find most similar document embeddings
+  4. Feed relevant documents to LLM as context
+- This is almost a search, but also summarization!
+
+</v-clicks>
+
+---
+
+# But can't we just…
+
+save data in a database and ask LLM to access it?
+
+<v-click>
+No!
+
+- The whole NN is a huge bunch of hardcode<span v-click="2">d weights</span>
+
+</v-click>
+<v-click at="3">
+
+- NN can't access anything directly, it's not a program, more of a data structure
+
+</v-click>
+
+---
+
+# And here I hear the magic word
+
+## <abbr title="Retrieval Augmented Generation">RAG</abbr>
+
+Essentially, the idea is to mix relevant data into prompt and make LLM use it
+
+---
+
+# How to implement RAG?
+
+1. Convert documents to embeddings
+2. Store them in a vector database
+3. Convert user query to embedding
+4. Find most similar document embeddings
+5. Feed relevant documents to LLM as context
+
+---
+
+# 1. Convert documents to embeddings
 
 
+- Not all documents can be converted to embeddings directly
+  - Text needs to be split into chunks
+  - Each chunk has a maximum <abbr title="A token is a piece of text, like a word or part of a word">token</abbr> limit:
+    - OpenAI ada-002: 8,191 tokens
+    - Mistral-7B: 8,192 tokens
+    - Claude: 8,000 tokens
+  - Need to balance chunk size:
+    - Too small → loses context
+    - Too large → less precise matches
+- Some information may be lost in the conversion process
+
+---
+
+# 2. Store them in a vector database
+
+## Where?
+
+Vector database is a specialized database for storing and searching vectors
+
+Key features:
+
+- Efficient similarity search:
+  - Cosine similarity: $\cos(\theta) = {\mathbf{A} \cdot \mathbf{B} \over \|\mathbf{A}\| \|\mathbf{B}\|}$
+  - Euclidean distance: $\sqrt{\sum(a_i - b_i)^2}$
+  - Dot product: $\sum_{i} a_i b_i$
+- Optimized for high-dimensional data
+- Can store metadata alongside vectors
+
+---
+
+# 2. Store them in a vector database
+
+## For example
+
+- Chroma
+- Weaviate 
+- Pinecone
+- Milvus
+- pgvector (PostgreSQL extension)
+
+
+---
+layout: center
+---
+# This is how it works
+
+```plantuml
+@startuml
+!theme hacker
+actor Administrator
+entity OpenAI
+database VectorDB
+Administrator -> OpenAI: document
+OpenAI -> Administrator: embedding
+Administrator -> VectorDB: embedding + source text
+@enduml
+```
