@@ -577,3 +577,84 @@ OpenAI -> Administrator: embedding
 Administrator -> VectorDB: embedding + source text
 @enduml
 ```
+
+---
+
+# 3. Convert user query to embedding
+
+Same as with document.
+
+Probably return an error if the query is too big.
+
+---
+
+# 4. Find most similar document embeddings
+
+- Use vector database to find closest embeddings to query embedding
+- Usually returns:
+  - Distance/similarity score
+  - Original text
+  - Optional metadata
+- Can limit number of results (e.g. top-k)
+- Can filter by metadata (e.g. only search specific document types)
+
+---
+
+# 5. Feed relevant documents to LLM as context
+
+- Take relevant documents from vector search
+- Add them as context to LLM prompt
+- Ask LLM to answer based on provided context
+- LLM generates response using only provided context
+- Response is more accurate and grounded in your documents
+
+---
+layout: two-cols
+---
+
+# This is how it works
+
+::right::
+
+```plantuml
+@startuml
+!theme hacker
+actor User
+boundary Backend
+entity LLM
+database VectorDB
+User -> Backend: query
+Backend -> LLM: query
+LLM -> Backend: embedding
+Backend -> VectorDB: query top-k
+VectorDB -> Backend: relevant documents
+Backend -> LLM: query + relevant documents
+LLM -> Backend: answer
+Backend -> User: answer
+@enduml
+```
+
+---
+layout: center
+---
+
+# Demo!
+
+---
+
+# Summary
+
+- RAG is simple
+- You need to know embeddings to understand RAG
+- Embeddings are not magic, they are just vectors
+- You don't need to know how LLM works to use RAG
+
+---
+layout: center
+---
+
+# Questions?
+
+<p><logos-bluesky /> asm0dey</p>
+<p><logos-twitter /> asm0di0</p>
+<p><logos-mastodon-icon /> @asm0dey@fosstodon.org</p>
