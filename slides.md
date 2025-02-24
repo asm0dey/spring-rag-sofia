@@ -57,6 +57,16 @@ I used to be a ChatGPT user
 <p v-click="4">I didn't hear about RAG <span v-click="5">(Retrieval-augmented generation)</span></p>
 
 ---
+layout: center
+---
+
+# Who is like me here?
+
+<p v-click="1">I will cross some T's in this talk</p>
+
+---
+layout: center
+---
 
 # Of course…
 
@@ -114,14 +124,12 @@ graph LR
 3. Need to produce content for the community
 4. Still love to code
 
-<!-- <p> -->
-<div v-click v-mark="{at: 1, color: 'yellow', type: 'box'}">
+<div v-click>
 <p>Follow me, BTW!</p>
 <p><logos-bluesky /> asm0dey</p>
 <p><logos-twitter /> asm0di0</p>
 <p><logos-mastodon-icon /> @asm0dey@fosstodon.org</p>
 </div>
-<!-- </p> -->
 
 ---
 
@@ -252,6 +260,17 @@ Similar things should have similar coordinates:
 - "cat" and "rocket" would be far apart
 
 </v-click>
+
+---
+
+<SlidevVideo autoplay="once" controls="true" autoreset="slide">
+  <source src="/WordEmbeddingAnalogy.webm" type="video/webm" />
+  <source src="/WordEmbeddingAnalogy.mp4" type="video/mp4" />
+    <p>
+    Your browser does not support videos. You may download it
+    <a href="/WordEmbeddingAnalogy.mp4">here</a>.
+  </p>
+</SlidevVideo>
 
 ---
 
@@ -397,18 +416,6 @@ Superseded by newer architectures:
 
 ---
 
-# Word2Vec's Legacy
-
-Still relevant today:
-
-- Pioneered neural word embeddings
-- Core concepts influence modern NLP
-- Useful for simple NLP tasks
-- Good for learning fundamentals
-
----
-
-
 # Text Embeddings
 
 Similar concept, but for chunks of text:
@@ -469,7 +476,6 @@ We get:
 
 <v-clicks>
 
-- LLMs can't directly search through documents
 - Embeddings convert text into numbers that capture meaning
 - Similar texts get similar vectors, enabling semantic search
 - RAG workflow:
@@ -477,7 +483,7 @@ We get:
   2. Convert user query to embedding
   3. Find most similar document embeddings
   4. Feed relevant documents to LLM as context
-- This is almost a search, but also summarization!
+- This is not only a search, but also summarization!
 
 </v-clicks>
 
@@ -490,10 +496,10 @@ save data in a database and ask LLM to access it?
 <v-click>
 No!
 
-- The whole NN is a huge bunch of hardcode<span v-click="2">d weights</span>
+- The whole NN is a huge bunch of <span v-mark="{at: 3, color: 'red', type: 'underline'}">hardcode<span v-click="2">d</span></span><span v-click="2"> weights</span>
 
 </v-click>
-<v-click at="3">
+<v-click at="4">
 
 - NN can't access anything directly, it's not a program, more of a data structure
 
@@ -503,7 +509,7 @@ No!
 
 # And here I hear the magic word
 
-## <abbr title="Retrieval Augmented Generation">RAG</abbr>
+## RAG (Retrieval Augmented Generation)
 
 Essentially, the idea is to mix relevant data into prompt and make LLM use it
 
@@ -549,6 +555,17 @@ Key features:
   - Dot product: $\sum_{i} a_i b_i$
 - Optimized for high-dimensional data
 - Can store metadata alongside vectors
+
+---
+
+<SlidevVideo autoplay="once" controls="true" autoreset="slide">
+  <source src="/CosineDistanceVisualization.webm" type="video/webm" />
+  <source src="/CosineDistanceVisualization.mp4" type="video/mp4" />
+    <p>
+    Your browser does not support videos. You may download it
+    <a href="/CosineDistanceVisualiztion.mp4">here</a>.
+  </p>
+</SlidevVideo>
 
 ---
 
