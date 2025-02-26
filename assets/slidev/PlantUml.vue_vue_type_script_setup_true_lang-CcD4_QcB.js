@@ -1,0 +1,1 @@
+import{d as l,z as o,f as r,o as c,k as n}from"../modules/vue-Quq115F5.js";const m=["src","alt"],i=l({__name:"PlantUml",props:{code:{},server:{},scale:{},alt:{default:"PlantUML diagram"}},setup(s){const e=s,t=o(()=>`${e.server}/svg/${e.code}`);return(a,p)=>(c(),r("img",{src:t.value,style:n({scale:a.scale}),alt:a.alt},null,12,m))}});export{i as _};
