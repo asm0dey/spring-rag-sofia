@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@iconify-json/logos": "^1.2.4",
-    "@slidev/cli": "^51.3.0",
+    "@slidev/cli": "^52.0.0",
     "@slidev/theme-apple-basic": "^0.25.1",
     "@slidev/theme-bricks": "^0.25.0",
     "@slidev/theme-default": "latest",
