@@ -1,0 +1,1 @@
+import{f as l,o,e as r,k as c,A as n}from"../modules/vue--EcqmPf2.js";const m=["src","alt"],u=l({__name:"PlantUml",props:{code:{},server:{},scale:{},alt:{default:"PlantUML diagram"}},setup(s){const e=s,t=n(()=>`${e.server}/svg/${e.code}`);return(a,p)=>(o(),r("img",{src:t.value,style:c({scale:a.scale}),alt:a.alt},null,12,m))}});export{u as _};
